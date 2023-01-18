@@ -1,0 +1,22 @@
+.Image{
+    width: 220px;
+}
+
+*{
+    box-sizing: border-box;
+}
+.selectsection{
+    margin-bottom: 100px;
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.cards > div{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
