@@ -79,46 +79,61 @@ let data = [
   },
 ];
 
+function relodbtn() {
+  data.map((item) => {
+    list.innerHTML += `
+        <div id="insidecard" >
+        <p id="Image">Project Image </p><img class="image"
+        src="${item.Image}"
+        alt="">
+        <p id="Name">Project Name:<h1>${item.Name}</h1></p>
+      </div>
+        `;
+  }); 
+}
 
+/////////////////////////////show cards////////////////////////////////
 
+function justHtml(data) {
+  return `
+  <div>
+          <p id="Image">Project Image </p>
+          <img class="image" src="${data.Image}" alt="">
+          <p id="Name">Project Name:<h1>${data.Name}</h1></p>
+        </div>
+  `;
+}
+
+const list = document.getElementById("cards");
+data.map((item) => {
+  list.innerHTML += justHtml(item);
+
+  return null;
+});
 
 ///////////////////////////////Select City///////////////////////
 const selectbox = document.getElementById("selectcity");
 
 data.map((area) => {
-  selectbox.innerHTML += `
-      <option  value="${area.Name}">${area.Name}</option>
-      `;
-
-  return null;
+  selectbox.innerHTML += `<option  value="${area.Name}">${area.Name}</option>`;
 });
-function searchbtn() {
-  var selectbox = document.getElementById("selectcity").value;
-  let result = data.find((item) => {return item.Name === selectbox})
-  document.getElementById("cards").innerHTML = `
-          <div>
-          <p id="Image">Project Image </p><img class="image"
-          src="${result.Image}"
-          alt="">
-          <p id="Name">Project Name:<h1>${result.Name}</h1></p>
-        </div>
-          `;
-    
-  console.log(result);
 
+//////// find where item.name is equal to select box  ///////////////////////////
+function optionbtn() {
+  var selectbox = document.getElementById("selectcity").value;
+
+  if (selectbox === "defaultselect") {
+    selectbox = data.map((item) => {
+      list.innerHTML += justHtml(item);
+    });
+  } else {
+    let result = data.find((item) => {
+      return item.Name === selectbox;
+    });
+    list.innerHTML = justHtml(result);
+    console.log(result);
+  }
 }
 
-/////////////////////////////show cards////////////////////////////////
-// const list = document.getElementById("cards");
-// data.map((item) => {
-//   list.innerHTML += `
-//       <div>
-//       <p id="Image">Project Image </p><img class="image"
-//       src="${item.Image}"
-//       alt="">
-//       <p id="Name">Project Name:<h1>${item.Name}</h1></p>
-//     </div>
-//       `;
-// });
-
 ////////////////search result in console//////////////////
+console.log(selectbox);

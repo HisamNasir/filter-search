@@ -8,10 +8,16 @@
 .selectsection{
     margin-bottom: 100px;
 }
+.cardbody{
+    
+}
 .cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    width: 300px;
+    margin: 0px;
+    padding: 0px; 
 }
 
 .cards > div{
