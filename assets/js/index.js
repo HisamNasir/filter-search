@@ -92,6 +92,21 @@ data.map((area) => {
 
   return null;
 });
+function searchbtn() {
+  var selectbox = document.getElementById("selectcity").value;
+  let result = data.find((item) => {return item.Name === selectbox})
+  document.getElementById("cards").innerHTML = `
+          <div>
+          <p id="Image">Project Image </p><img class="image"
+          src="${result.Image}"
+          alt="">
+          <p id="Name">Project Name:<h1>${result.Name}</h1></p>
+        </div>
+          `;
+    
+  console.log(result);
+
+}
 
 /////////////////////////////show cards////////////////////////////////
 // const list = document.getElementById("cards");
@@ -107,19 +122,3 @@ data.map((area) => {
 // });
 
 ////////////////search result in console//////////////////
-function searchbtn() {
-  var selectbox = document.getElementById("selectcity").value;
-  let result = data.find((item) => {return item.Name === selectbox})
-  // var selected = selectbox.option[selectbox.selectedIndex].text;
-  document.getElementById("cards").innerHTML = `
-          <div>
-          <p id="Image">Project Image </p><img class="image"
-          src="${result.Image}"
-          alt="">
-          <p id="Name">Project Name:<h1>${result.Name}</h1></p>
-        </div>
-          `;
-    
-  console.log(result);
-
-}
